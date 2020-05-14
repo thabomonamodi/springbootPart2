@@ -3,6 +3,7 @@ package com.spingweb.Service;
 import com.spingweb.Dao.FakeRepo;
 import com.spingweb.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -29,19 +30,17 @@ public class UserServiceImpl implements UserService
     @Autowired
     private FakeRepo repo;
 
-    @Override
     public void addUser(String name, String surname)
     {
         repo.insertUser(name,surname);
     }
 
-    @Override
     public void removeUser(long id)
     {
         repo.deleteUser(id);
     }
 
-    @Override
+    @Cacheable
     public void getUser(long id)
     {
         try

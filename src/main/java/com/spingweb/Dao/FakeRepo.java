@@ -1,6 +1,7 @@
 package com.spingweb.Dao;
 
 import com.spingweb.Model.User;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -33,7 +34,15 @@ public class FakeRepo implements FakeRepoInterface
         System.out.println(user1.getName()+" "+user1.getSurname()+"user inserted");
         //user.put(user.getId(), (User) user);
     }
+    public void insertUser(String name, String surname)
+    {
+        user1.setName(name);
+        user1.setSurname(surname);
 
+        System.out.println(user1.getName()+" "+user1.getSurname()+"user inserted");
+        //user.put(user.getId(), (User) user);
+    }
+    @Cacheable
     public void findUserById(long id)
     {
         this.user.get(id);
