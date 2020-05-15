@@ -30,9 +30,10 @@ public class UserServiceImpl implements UserService
     @Autowired
     private FakeRepo repo;
 
-    public void addUser(String name, String surname)
+    public String addUser(String name, String surname)
     {
         repo.insertUser(name,surname);
+        return name;
     }
 
     public void removeUser(long id)
@@ -40,9 +41,15 @@ public class UserServiceImpl implements UserService
         repo.deleteUser(id);
     }
 
-    @Cacheable
     public void getUser(long id)
     {
+        repo.findUserById(id);
+    }
+
+    @Cacheable
+    public String cachedUser(String name)
+    {
+        String msg = addUser(name, "uzi");
         try
         {
             System.out.println("Going to sleep for 5 Secs.. to simulate backend call.");
@@ -52,7 +59,6 @@ public class UserServiceImpl implements UserService
         {
             e.printStackTrace();
         }
-
-        repo.findUserById(id);
+        return msg;
     }
 }
