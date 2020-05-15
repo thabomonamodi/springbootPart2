@@ -4,12 +4,14 @@ import com.spingweb.Dao.FakeRepo;
 import com.spingweb.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@EnableCaching
 public class UserServiceImpl implements UserService
 {
     private static Map<Integer, User> user;
