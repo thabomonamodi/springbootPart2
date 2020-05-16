@@ -27,6 +27,5 @@ public class UserServiceTest
             String name2 = userService.cachedUser("Budah");
             String name3 = userService.cachedUser("Budah");
             System.out.println(name1+" "+name2+" "+name3);
-
     }
 }
