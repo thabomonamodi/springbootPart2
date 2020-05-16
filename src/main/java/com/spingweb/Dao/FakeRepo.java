@@ -38,11 +38,7 @@ public class FakeRepo implements FakeRepoInterface
     }
     public void insertUser(String name, String surname)
     {
-        user1.setName(name);
-        user1.setSurname(surname);
-
-        System.out.println(user1.getName()+" "+user1.getSurname()+"user inserted");
-        //user.put(user.getId(), (User) user);
+        System.out.println(name+" "+surname+"user inserted");
     }
 
     public void findUserById(long id)

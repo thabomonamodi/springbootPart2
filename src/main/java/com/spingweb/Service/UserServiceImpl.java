@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService
     public String addUser(String name, String surname)
     {
         repo.insertUser(name,surname);
+        System.out.println(name+" "+surname+ " user inserted");
         return name;
     }
 
@@ -48,10 +49,10 @@ public class UserServiceImpl implements UserService
         repo.findUserById(id);
     }
 
-    @Cacheable
+    @Cacheable("cachedUser")
     public String cachedUser(String name)
     {
-        String msg = addUser(name, "uzi");
+        String msg = addUser(name, "");
         try
         {
             System.out.println("Going to sleep for 5 Secs.. to simulate backend call.");

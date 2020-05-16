@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-@EnableCaching
+@EnableCaching(proxyTargetClass = true)
 public class Main
 {
     public static void main(String[] args)
